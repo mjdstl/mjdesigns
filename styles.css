@@ -214,7 +214,8 @@ header h1 a {
   padding: 1rem;
 }
 
-.product-card-wrapper {
+/* Attach the relative position directly to the product-card so tag sticks to the image */
+.product-card {
   position: relative;
   display: inline-block;
 }
@@ -234,16 +235,12 @@ header h1 a {
   pointer-events: none;
 }
 
-/* Mobile-specific positioning fix */
 @media (max-width: 768px) {
-  .product-card-wrapper {
-    position: relative;
-  }
-
   .status-tag {
-    top: 2px;         /* Move it up! */
-    left: 4px;        /* A little tighter */
-    font-size: 0.6rem;
+    top: 4px;
+    left: 6px;
+    font-size: 0.65rem;
     padding: 2px 5px;
   }
 }
+
