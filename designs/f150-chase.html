@@ -5,6 +5,45 @@
   <title>10th Gen F-150 Chase Light | MJDesigns</title>
   <link rel="stylesheet" href="../styles.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    .carousel {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto 1.5rem auto;
+    }
+
+    .carousel img {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 1.5rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      z-index: 2;
+      border-radius: 4px;
+    }
+
+    .carousel-button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+  </style>
 </head>
 <body>
 
@@ -19,9 +58,16 @@
   </header>
 
   <main class="product-detail">
-    <h2>2002 F-150 Chase Light</h2>
-    <img src="../images/f150-chase.jpg" alt="10th Gen F-150 Chase Light" />
-    <p>This CAD-designed chase light replaces your stock third brake light with a stylish and functional upgrade. Made from ASA filament for heat and UV resistance. Designed to fit 1997-2004 Ford F-150, with wiring diagram included.</p>
+    <h2>10th Gen F-150 Chase Light</h2>
+
+    <div class="carousel">
+      <button class="carousel-button prev">&#8592;</button>
+      <img id="carousel-image" src="../images/f150-chase.jpg" alt="10th Gen F-150 Chase Light" />
+      <button class="carousel-button next">&#8594;</button>
+    </div>
+
+    <p><strong>Status:</strong> Optimizing for best fitment. ~ 1 week ETA </p>
+    <p>This CAD-designed chase light replaces your stock third brake light offering chase light functionality while still keeping OEM fit and style. Made from ASA filament for heat and UV resistance. Designed to fit 1997–2004 Ford F-150, with wiring diagram included. Modifications required upon installation.</p>
     <p><em>Currently refining design for quality fitment before release.</em></p>
   </main>
 
@@ -29,7 +75,29 @@
     <p>&copy; 2025 MJDesigns. All rights reserved.</p>
   </footer>
 
+  <script>
+    const images = [
+      "../images/f150-chase.jpg",
+      "../images/f150-chase2.jpg",
+      "../images/f150-chase3.jpg"
+    ];
+
+    let currentImageIndex = 0;
+    const imageElement = document.getElementById("carousel-image");
+
+    document.querySelector(".prev").addEventListener("click", () => {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      imageElement.src = images[currentImageIndex];
+    });
+
+    document.querySelector(".next").addEventListener("click", () => {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      imageElement.src = images[currentImageIndex];
+    });
+  </script>
+
 </body>
 </html>
+
 
 
