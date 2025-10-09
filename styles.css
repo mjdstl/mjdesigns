@@ -237,7 +237,7 @@ header h1 a {
 
 @media (max-width: 768px) {
   .status-tag {
-    top: 4px;
+    top: 6px;
     left: 6px;
     font-size: 0.65rem;
     padding: 2px 5px;
