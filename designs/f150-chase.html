@@ -6,51 +6,50 @@
   <link rel="stylesheet" href="../styles.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    .carousel {
-      position: relative;
-      max-width: 500px;
-      margin: 0 auto 1.5rem auto;
-    }
+  .carousel {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto 1.5rem auto;
+  }
 
-    .carousel img {
-      width: 100%;
-      border-radius: 6px;
-      display: block;
-    }
+  .carousel img {
+    width: 100%;
+    border-radius: 6px;
+    display: block;
+  }
 
-    .carousel-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      font-size: 1.5rem;
-      padding: 0.4rem 0.8rem;
-      cursor: pointer;
-      z-index: 2;
-      border-radius: 4px;
-    }
+  .carousel-button {
+    position: absolute;
+    bottom: 10px; /* move buttons to bottom instead of vertical center */
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    z-index: 2;
+    border-radius: 4px;
+  }
 
-    .carousel-button:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
+  .carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
 
-    .prev {
-      left: 10px;
-    }
+  .prev, .update-prev {
+    left: 10px;
+  }
 
-    .next {
-      right: 10px;
-    }
-  </style>
+  .next, .update-next {
+    right: 10px;
+  }
+</style>
 </head>
 <body>
 
   <header>
     <a href="../index.html">
-  <img src="../images/MJDesigns.jpg" alt="MJDesigns Logo" class="site-logo" />
-</a>
+      <img src="../images/MJDesigns.jpg" alt="MJDesigns Logo" class="site-logo" />
+    </a>
     <nav>
       <a href="../index.html">Home</a>
       <a href="../designs.html">Designs</a>
@@ -68,15 +67,47 @@
       <button class="carousel-button next">&#8594;</button>
     </div>
 
-    <p><strong>Status:</strong> Optimizing for best fitment. ~ 1 week ETA </p>
     <p>This CAD-designed chase light replaces your stock third brake light offering chase light functionality while still keeping OEM fit and style. Made from ASA filament for heat and UV resistance. Designed to fit 1997–2004 Ford F-150, with wiring diagram included. Modifications required upon installation.</p>
-    <p><em>Currently refining design for quality fitment before release.</em></p>
+
+    <!-- UPDATED STATUS UPDATE SECTION -->
+    <section class="product-update">
+      <h3>Status Update</h3>
+      <p>
+        Thank you to everyone who has shown interest in the 10th Gen F‑150 Chase Light. Development is now in its final stages, though the process has taken slightly longer than expected due to the precision needed to achieve an OEM-level fit and finish.
+      </p>
+      <p>
+        The current version is installed on my own truck and fits extremely well — it now reuses the factory third brake light screws and snaps securely into place just like the oem 3rd brake light. The final refinements focus on improving how the housing blends with the upper trim for a seamless transition.
+      </p>
+      <p>
+        Each full housing takes significant time and material to print, so smaller test sections are made in lower-cost materials before committing to a full ASA print. While this adds some delay, it ensures the final product meets the standard of quality and durability I aim for.
+      </p>
+      <p>
+        I expect to post a new test-fit update on TikTok within the next week, with pre-orders likely opening soon afterward. The running and brake light modules have been upgraded to a brighter, more compact version (featured in my latest TikTok). These now come with 2 lens options. The led chase light pods will also have different lense options for both beams and colors with options such as white, yellow amber, amber, red, and green — with spot, flood, difused, and hybrid beam configurations.
+      </p>
+      <p>
+        Installation will require light modification to the OEM third brake light wiring harness to connect the new brake and running lights. Power for the amber chase pods will need to be supplied separately using a basic 12V harness or switch panel setup. I’ll be listing a few recommended harness options soon for both simple and advanced configurations.
+      </p>
+      <p>
+        Looking further ahead, I’m also in contact with a supplier to potentially offer CNC‑machined versions of this and future chase light designs for those who prefer a premium metal finish.
+      </p>
+      <p>
+        Thank you again for your patience, feedback, and ongoing support — it’s helping shape a design I’m proud to share with the F‑150 community.
+      </p>
+
+      <!-- NEW CAROUSEL FOR STATUS IMAGES -->
+      <div class="carousel update-carousel">
+        <button class="carousel-button update-prev">&#8592;</button>
+        <img id="update-carousel-image" src="../images/f150chase-update1.jpg" alt="Installed chase light view" />
+        <button class="carousel-button update-next">&#8594;</button>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 MJDesigns. All rights reserved.</p>
   </footer>
 
+  <!-- CAD Carousel Script -->
   <script>
     const images = [
       "../images/f150-chase.jpg",
@@ -98,8 +129,29 @@
     });
   </script>
 
+  <!-- Status Update Carousel Script -->
+  <script>
+    const updateImages = [
+      "../images/f150chase-update1.jpg",
+      "../images/f150chase-update2.jpg",
+      "../images/f150chase-update3.jpg"
+    ];
+
+    let updateIndex = 0;
+    const updateImageElement = document.getElementById("update-carousel-image");
+
+    document.querySelector(".update-prev").addEventListener("click", () => {
+      updateIndex = (updateIndex - 1 + updateImages.length) % updateImages.length;
+      updateImageElement.src = updateImages[updateIndex];
+    });
+
+    document.querySelector(".update-next").addEventListener("click", () => {
+      updateIndex = (updateIndex + 1) % updateImages.length;
+      updateImageElement.src = updateImages[updateIndex];
+    });
+  </script>
+
 </body>
 </html>
-
 
 
