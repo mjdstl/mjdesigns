@@ -73,26 +73,17 @@
     <section class="product-update">
       <h3>Status Update</h3>
       <p>
-        Thank you to everyone who has shown interest in the 10th Gen F‑150 Chase Light. Development is now in its final stages, though the process has taken slightly longer than expected due to the precision needed to achieve an OEM-level fit and finish.
-      </p>
-      <p>
-        The current version is installed on my own truck and fits extremely well — it now reuses the factory third brake light screws and fits securely into place just like the oem 3rd brake light. The final refinements focus on improving how the housing blends with the upper trim for a seamless transition.
-      </p>
-      <p>
-        Each full housing takes significant time and material to print, so smaller test sections are made in lower-cost materials before committing to a full ASA print. While this adds some delay, it ensures the final product meets the standard of quality and durability I aim for.
-      </p>
-      <p>
-        I expect to post a new test-fit update on TikTok within the next week, with pre-orders likely opening soon afterward. The running and brake light modules have been upgraded to a brighter, more compact version (featured in my latest TikTok). These now come with 2 lens options. The led chase light pods will also have different lense options for both beams and colors with options such as white, yellow amber, amber, red, and green — with spot, flood, difused, and hybrid beam configurations.
-      </p>
-      <p>
-        Installation will require light modification to the OEM third brake light wiring harness to connect the new brake and running lights. Power for the amber chase pods will need to be supplied separately using a basic 12V harness or switch panel setup. I’ll be listing a few recommended harness options soon for both simple and advanced configurations.
-      </p>
-      <p>
-        Looking further ahead, I’m also in contact with a supplier to potentially offer CNC‑machined versions of this and future chase light designs for those who prefer a premium metal finish.
-      </p>
-      <p>
-        Thank you again for your patience, feedback, and ongoing support — it’s helping shape a design I’m proud to share with the F‑150 community.
-      </p>
+    The 10th Gen F-150 Chase Light is now in its final phase. The latest ASA flagship version fits my own truck perfectly — it reuses the OEM third brake light screws and mounts flush with the cab. The shape, contour, and alignment with the upper trim are now dialed in.
+  </p>
+  <p>
+    I’ve been testing this version daily to confirm durability, seal integrity, and light performance. The amber pods are fully integrated with my strobe controller and switch panel, and both the running and brake lights use the newer compact 11 mm modules for a cleaner look and stronger output.
+  </p>
+  <p>
+    Installation will still require connecting the new brake and running light leads into the OEM harness, plus a separate 12 V feed for the amber chase pods. I’ll post wiring diagrams and optional harness suggestions soon to make setup easier for anyone planning their own install.
+  </p>
+  <p>
+    Thank you to everyone who’s followed along and given feedback — it’s made a huge difference getting this design to where it’s at now. This is the cleanest, most refined version yet, and I’m excited to finally get it into more 10th-gen F-150 builds soon.
+  </p>
 
       <!-- NEW CAROUSEL FOR STATUS IMAGES -->
       <div class="carousel update-carousel">
@@ -129,27 +120,59 @@
     });
   </script>
 
-  <!-- Status Update Carousel Script -->
-  <script>
-    const updateImages = [
-      "../images/f150chase-update1.jpg",
-      "../images/f150chase-update2.jpg",
-      "../images/f150chase-update3.jpg"
-    ];
+<!-- Status Update Carousel Script -->
+<script>
+  const updateImages = [
+    "../images/f150chase-update1.jpg",
+    "../images/f150chase-update2.jpg",
+    "../images/f150chase-update3.jpg",
+    "../images/f150chase-update4.mp4" // <-- your new video
+  ];
 
-    let updateIndex = 0;
-    const updateImageElement = document.getElementById("update-carousel-image");
+  let updateIndex = 0;
+  const updateImageElement = document.getElementById("update-carousel-image");
 
-    document.querySelector(".update-prev").addEventListener("click", () => {
-      updateIndex = (updateIndex - 1 + updateImages.length) % updateImages.length;
-      updateImageElement.src = updateImages[updateIndex];
-    });
+  function renderUpdateSlide(i) {
+    const src = updateImages[i];
+    const isVideo = src.endsWith(".mp4");
 
-    document.querySelector(".update-next").addEventListener("click", () => {
-      updateIndex = (updateIndex + 1) % updateImages.length;
-      updateImageElement.src = updateImages[updateIndex];
-    });
-  </script>
+    // clear previous media
+    const parent = updateImageElement.parentNode;
+    parent.querySelectorAll("video").forEach(v => v.remove());
+
+    if (isVideo) {
+      // hide img and insert video
+      updateImageElement.style.display = "none";
+      const vid = document.createElement("video");
+      vid.src = src;
+      vid.autoplay = true;
+      vid.loop = true;
+      vid.muted = true;
+      vid.playsInline = true;
+      vid.style.width = "100%";
+      vid.style.borderRadius = "6px";
+      parent.insertBefore(vid, updateImageElement);
+      vid.play().catch(()=>{});
+    } else {
+      // show img
+      updateImageElement.style.display = "block";
+      updateImageElement.src = src;
+    }
+  }
+
+  document.querySelector(".update-prev").addEventListener("click", () => {
+    updateIndex = (updateIndex - 1 + updateImages.length) % updateImages.length;
+    renderUpdateSlide(updateIndex);
+  });
+
+  document.querySelector(".update-next").addEventListener("click", () => {
+    updateIndex = (updateIndex + 1) % updateImages.length;
+    renderUpdateSlide(updateIndex);
+  });
+
+  // initial render
+  renderUpdateSlide(updateIndex);
+</script>
 
 </body>
 </html>
