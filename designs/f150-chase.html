@@ -20,7 +20,7 @@
 
   .carousel-button {
     position: absolute;
-    bottom: 10px; /* move buttons to bottom instead of vertical center */
+    bottom: 10px;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
@@ -35,14 +35,171 @@
     background-color: rgba(0, 0, 0, 0.8);
   }
 
-  .prev, .update-prev {
+  .prev {
     left: 10px;
   }
 
-  .next, .update-next {
+  .next {
     right: 10px;
   }
-</style>
+
+  .page-tagline {
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+    opacity: 0.85;
+  }
+
+  /* ========== CONFIGURATOR STYLES ========== */
+  .chase-config {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+  }
+
+  .config-hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .config-preview {
+    flex: 1 1 320px;
+  }
+
+  .config-preview img {
+    width: 100%;
+    border-radius: 1rem;
+    display: block;
+    object-fit: cover;
+  }
+
+  .config-summary {
+    flex: 1 1 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .config-price-box {
+    border-radius: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid #444;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 2rem;
+    color: #f5f5f5;
+  }
+
+  .config-price-box h3 {
+  margin: 0 0 0.5rem;
+  color: #f5f5f5 !important;
+}
+
+  .config-price-box p {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+  }
+
+  .config-total {
+    margin-top: 0.5rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+    border-top: 1px solid #333;
+    padding-top: 0.4rem;
+  }
+
+  .config-cta {
+    margin-top: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    background: #f5b400;
+    color: #000;
+  }
+
+  .config-cta:hover {
+    filter: brightness(1.05);
+  }
+
+  .config-note,
+  .config-subtext,
+  .config-options h3 {
+    color: #000;
+  }
+
+  .config-note {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+
+  .config-options {
+    margin-top: 1.5rem;
+  }
+
+  .config-options h3 {
+    margin-bottom: 0.25rem;
+  }
+
+  .config-subtext {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-bottom: 1rem;
+  }
+
+  .config-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    align-items: stretch;
+  }
+
+  .config-card {
+    text-align: left;
+    border-radius: 0.9rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid #444;
+    background: #151515;
+    cursor: pointer;
+    transition:
+      transform 0.12s ease,
+      box-shadow 0.12s ease,
+      border-color 0.12s ease;
+    color: #f5f5f5;
+    min-height: 120px;            /* keep them chunky even with less text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;       /* center heading + detail nicely */
+  }
+
+  .config-card h4 {
+    margin: 0 0 0.25rem;
+  }
+
+  .config-card-detail {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.9;
+  }
+
+  .config-card-tag {
+    margin: 0.3rem 0 0;
+    font-size: 0.8rem;
+    opacity: 0.75;
+  }
+
+  .config-card.active {
+    border-color: #f5b400;
+    box-shadow: 0 0 0 1px rgba(245, 180, 0, 0.4);
+    transform: translateY(-1px);
+  }
+  </style>
 </head>
 <body>
 
@@ -59,58 +216,185 @@
   </header>
 
   <main class="product-detail">
-    <h2>10th Gen F-150 Chase Light</h2>
+    <!-- TOP TITLE + TAGLINE -->
+    <h2>MJD Chase Light – 10th Gen F-150 (1997–2003)</h2>
+    <p class="page-tagline">
+      Desert-tested chase light system with configurable LED pods and integrated brake/running lights.
+    </p>
 
+    <!-- CAROUSEL: HOUSING + INSTALLED SHOTS -->
     <div class="carousel">
       <button class="carousel-button prev">&#8592;</button>
-      <img id="carousel-image" src="../images/f150-chase.jpg" alt="10th Gen F-150 Chase Light" />
+      <img id="carousel-image" src="../images/f150chase-housing-front.jpg" alt="10th Gen F-150 Chase Light housing front view" />
       <button class="carousel-button next">&#8594;</button>
     </div>
 
-    <p>This CAD-designed chase light replaces your stock third brake light offering chase light functionality while maintaining OEM fit and style. Made from ASA filament for heat and UV resistance. Designed to fit 1997–2004 Ford F-150, with wiring diagram included. Modifications required upon installation.</p>
+    <!-- SHORT DESCRIPTION -->
+    <p>
+      This CAD-designed chase light replaces your stock third brake light, offering chase functionality
+      while maintaining an OEM-style fit. The housing is 3D printed in ASA for heat and UV resistance,
+      and mounts in the factory third-brake-light location on 1997–2004 Ford F-150s. A wiring diagram
+      and install notes are provided. Basic wiring and modifications are required on installation.
+    </p>
 
-    <!-- UPDATED STATUS UPDATE SECTION -->
-    <section class="product-update">
-      <h3>Status Update</h3>
-  <p>
-    I finally got the chance to take my truck out to Ocotillo Wells during Thanksgiving, and it 
-    was the first real test of the chase light in busy, dusty conditions. There were a lot of 
-    people out there, tons of lights everywhere, and it can be easy to lose track of vehicles at 
-    night or even during the day in the dust.
-  </p>
+    <!-- CONFIGURATOR SECTION -->
+    <section class="chase-config">
+      <div class="config-hero">
 
-  <p>
-    I drove across the desert from Pole Line down to Blow Sand while riding with a group of 
-    dirt bikers to retrieve a broken down bike, and they said the chase light was super helpful. 
-    The amber pods stayed bright and visible in the dust, and the brake lights were easy to see 
-    the entire time. From my own experience out there, it was great having the chase light on at 
-    night with so much traffic around — everyone could see me clearly, and it made 
-    pulling into camp and unloading the trailer way easier at night.
-  </p>
+        <div class="config-summary">
+          <button class="config-cta" id="config-start-order">
+            Start Your Order
+          </button>
+          <p class="config-note">
+            Build-to-order: once submitted, I'll contact you to confirm options and lead time.
+          </p>
+        </div>
+      </div>
 
-  <p>
-    This version has now been through heat, moisture, rain, dust, vibration, and constant 
-    movement, and it’s still performing exactly how I designed it to. The last thing I want to 
-    do before moving forward is fully dissect the housing and inspect everything internally to 
-    confirm the seal and overall durability. That will be happening very soon.
-  </p>
+      <div class="config-options">
+        <h3>Choose Your Pod Configuration</h3>
+        <p class="config-subtext">
+          I currently run Yellow Amber Diffused on my own truck (shown above). Yellow Amber Combo is the default
+          desert setup if you don't pick a specific option. Diffused honeycomb pods are more about being seen
+          than seeing the trail—they’re designed for maximum presence, not maximum distance.
+        </p>
 
-  <p>
-    Once that final inspection is done, I’ll be doing a fully revamped update of this site to 
-    get the chase light ready for purchase. I’ll also be posting on social media once everything 
-    is confirmed, and I plan on showing part of the teardown process so people can see how well 
-    the design protected itself from the conditions.
-  </p>
+        <div class="config-grid" id="config-options-grid">
+          <!-- DEFAULT: Yellow Amber Combo -->
+<button
+  class="config-card active"
+  data-name="Yellow Amber Combo"
+  data-upcharge="0"
+  data-image="../images/chase-yellow-combo-night.jpg"
+  style="background-image: url('../images/lens-yellow-combo.jpg');"
+>
+  <h4>Yellow Amber Combo</h4>
+  <p class="config-card-detail">Spot/Flood Combo</p>
+  <p class="config-card-tag">default</p>
+</button>
 
-  <p>
-    More updates after tomorrow’s inspection.
-  </p>
+<!-- Yellow Amber Diffuse -->
+<button
+  class="config-card"
+  data-name="Yellow Amber Honeycomb Diffuse"
+  data-upcharge="10"
+  data-image="../images/chase-yellow-honeycomb.jpg"
+  style="background-image: url('../images/lens-yellow-diffuse.jpg');"
+>
+  <h4>Yellow Amber Diffused</h4>
+  <p class="config-card-detail">Honeycomb Diffuse</p>
+</button>
 
-      <!-- NEW CAROUSEL FOR STATUS IMAGES -->
-      <div class="carousel update-carousel">
-        <button class="carousel-button update-prev">&#8592;</button>
-        <img id="update-carousel-image" src="../images/f150chase-update1.jpg" alt="Installed chase light view" />
-        <button class="carousel-button update-next">&#8594;</button>
+<!-- Orange Amber Flood -->
+<button
+  class="config-card"
+  data-name="Orange Amber Flood"
+  data-upcharge="0"
+  data-image="../images/chase-orange-flood.jpg"
+  style="background-image: url('../images/lens-orange-flood.jpg');"
+>
+  <h4>Orange Amber Flood</h4>
+  <p class="config-card-detail">Flood</p>
+</button>
+
+<!-- Orange Amber Combo -->
+<button
+  class="config-card"
+  data-name="Orange Amber Combo"
+  data-upcharge="10"
+  data-image="../images/chase-orange-combo.jpg"
+  style="background-image: url('../images/lens-orange-combo.jpg');"
+>
+  <h4>Orange Amber Combo</h4>
+  <p class="config-card-detail">Spot/Flood Combo</p>
+</button>
+
+<!-- White Combo -->
+<button
+  class="config-card"
+  data-name="White Combo"
+  data-upcharge="0"
+  data-image="../images/chase-white-combo.jpg"
+  style="background-image: url('../images/lens-white-combo.jpg');"
+>
+  <h4>White Combo</h4>
+  <p class="config-card-detail">Spot/Flood Combo</p>
+</button>
+
+<!-- White Spot -->
+<button
+  class="config-card"
+  data-name="White Spot"
+  data-upcharge="0"
+  data-image="../images/chase-white-spot.jpg"
+  style="background-image: url('../images/lens-white-spot.jpg');"
+>
+  <h4>White Spot</h4>
+  <p class="config-card-detail">Spot Beam</p>
+</button>
+
+<!-- White Diffuse -->
+<button
+  class="config-card"
+  data-name="White Honeycomb Diffuse"
+  data-upcharge="0"
+  data-image="../images/chase-white-diffuse.jpg"
+  style="background-image: url('../images/lens-white-diffuse.jpg');"
+>
+  <h4>White Diffused</h4>
+  <p class="config-card-detail">Honeycomb Diffuse</p>
+</button>
+
+<!-- White Diffuse Combo -->
+<button
+  class="config-card"
+  data-name="White Honeycomb Diffuse Combo"
+  data-upcharge="0"
+  data-image="../images/chase-white-diffuse-combo.jpg"
+  style="background-image: url('../images/lens-white-diffuse-combo.jpg');"
+>
+  <h4>White Diffuse Combo</h4>
+  <p class="config-card-detail">Honeycomb Diffuse + Flood</p>
+</button>
+
+<!-- Red Diffuse -->
+<button
+  class="config-card"
+  data-name="Red Honeycomb Diffuse"
+  data-upcharge="15"
+  data-image="../images/chase-red-diffuse.jpg"
+  style="background-image: url('../images/lens-red-diffuse.jpg');"
+>
+  <h4>Red Honeycomb Diffused</h4>
+  <p class="config-card-detail">Honeycomb Diffuse</p>
+</button>
+
+<!-- Green Diffuse -->
+<button
+  class="config-card"
+  data-name="Green Honeycomb Diffuse"
+  data-upcharge="15"
+  data-image="../images/chase-green-diffuse.jpg"
+  style="background-image: url('../images/lens-green-diffuse.jpg');"
+>
+  <h4>Green Honeycomb Diffused</h4>
+  <p class="config-card-detail">Honeycomb Diffuse</p>
+</button>
+
+        </div> <!-- end .config-grid -->
+
+      <!-- ORDER SUMMARY AT THE BOTTOM -->
+      <div class="config-price-box">
+        <h3>Order Summary</h3>
+        <p><span>Base housing:</span> <span>$170</span></p>
+        <p>
+          <span>Pod option:</span>
+          <span id="config-pod-upcharge">$0</span>
+        </p>
+        <p class="config-total">
+          <span>Total:</span>
+          <span id="config-total-price">$170</span>
+        </p>
       </div>
     </section>
   </main>
@@ -119,12 +403,12 @@
     <p>&copy; 2025 MJDesigns. All rights reserved.</p>
   </footer>
 
-  <!-- CAD Carousel Script -->
+  <!-- CAROUSEL SCRIPT -->
   <script>
     const images = [
-      "../images/f150-chase.jpg",
-      "../images/f150-chase2.jpg",
-      "../images/f150-chase3.jpg"
+      "../images/f150chase-housing-front.jpg",
+      "../images/f150chase-housing-back.jpg",
+      "../images/f150chase-installed.jpg"
     ];
 
     let currentImageIndex = 0;
@@ -141,61 +425,52 @@
     });
   </script>
 
-<!-- Status Update Carousel Script -->
-<script>
-  const updateImages = [
-    "../images/f150chase-update1.jpg",
-    "../images/f150chase-update2.jpg",
-    "../images/f150chase-update3.jpg",
-    "../images/f150chase-update4.mp4" // <-- your new video
-  ];
+  <!-- CONFIGURATOR SCRIPT -->
+  <script>
+    (function () {
+      const BASE_PRICE = 170;
+      const optionCards = document.querySelectorAll(".config-card");
+      const podUpchargeEl = document.getElementById("config-pod-upcharge");
+      const totalPriceEl = document.getElementById("config-total-price");
+      const previewImageEl = document.getElementById("config-preview-image");
+      const startOrderBtn = document.getElementById("config-start-order");
 
-  let updateIndex = 0;
-  const updateImageElement = document.getElementById("update-carousel-image");
+      function updateSelection(card) {
+        optionCards.forEach((c) => c.classList.remove("active"));
+        card.classList.add("active");
 
-  function renderUpdateSlide(i) {
-    const src = updateImages[i];
-    const isVideo = src.endsWith(".mp4");
+        const upcharge = Number(card.dataset.upcharge || 0);
+        const imgPath = card.dataset.image;
 
-    // clear previous media
-    const parent = updateImageElement.parentNode;
-    parent.querySelectorAll("video").forEach(v => v.remove());
+        podUpchargeEl.textContent = upcharge === 0 ? "$0" : `+$${upcharge}`;
+        totalPriceEl.textContent = `$${BASE_PRICE + upcharge}`;
 
-    if (isVideo) {
-      // hide img and insert video
-      updateImageElement.style.display = "none";
-      const vid = document.createElement("video");
-      vid.src = src;
-      vid.autoplay = true;
-      vid.loop = true;
-      vid.muted = true;
-      vid.playsInline = true;
-      vid.style.width = "100%";
-      vid.style.borderRadius = "6px";
-      parent.insertBefore(vid, updateImageElement);
-      vid.play().catch(()=>{});
-    } else {
-      // show img
-      updateImageElement.style.display = "block";
-      updateImageElement.src = src;
-    }
-  }
+        if (imgPath) previewImageEl.src = imgPath;
+      }
 
-  document.querySelector(".update-prev").addEventListener("click", () => {
-    updateIndex = (updateIndex - 1 + updateImages.length) % updateImages.length;
-    renderUpdateSlide(updateIndex);
-  });
+      optionCards.forEach((card) => {
+        card.addEventListener("click", () => updateSelection(card));
+      });
 
-  document.querySelector(".update-next").addEventListener("click", () => {
-    updateIndex = (updateIndex + 1) % updateImages.length;
-    renderUpdateSlide(updateIndex);
-  });
+      startOrderBtn.addEventListener("click", () => {
+        const activeCard = document.querySelector(".config-card.active");
+        const selectedName = activeCard
+          ? activeCard.dataset.name
+          : "Yellow Amber Combo";
 
-  // initial render
-  renderUpdateSlide(updateIndex);
-</script>
+        const total = totalPriceEl.textContent.replace("$", "");
+
+        const subject = encodeURIComponent(
+          "MJD Chase Light Build Inquiry - 10th Gen F-150"
+        );
+        const body = encodeURIComponent(
+          `Hey Mike,\n\nI'm interested in ordering a chase light for my 10th gen F-150.\n\nSelected pod configuration: ${selectedName}\nQuoted total from configurator: $${total}\n\nTruck year/trim:\nAdditional notes:\n\nThanks!`
+        );
+
+        window.location.href = `mailto:mjdesign.3mf@gmail.com?subject=${subject}&body=${body}`;
+      });
+    })();
+  </script>
 
 </body>
 </html>
-
-

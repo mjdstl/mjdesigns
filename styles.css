@@ -288,3 +288,32 @@ header h1 a {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: block;
 }
+
+.config-note {
+  margin-bottom: 0.10rem !important;
+}
+
+.config-options {
+  margin-top: 0.10rem !important;
+}
+
+.config-card {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 150px;
+  padding: 1rem;
+  position: relative;
+}
+
+.config-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: inherit;
+}
+.config-card * {
+  position: relative;
+  z-index: 2;
+}
