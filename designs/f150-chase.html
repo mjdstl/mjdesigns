@@ -603,7 +603,7 @@
       if (defaultActive) updateSelection(defaultActive);
 
       // Start Order button -> email draft
-      startOrderBtn.addEventListener("click", () => {
+            startOrderBtn.addEventListener("click", () => {
         const activeCard = document.querySelector(".config-card.active");
         const selectedName = activeCard
           ? activeCard.dataset.name
@@ -614,9 +614,18 @@
         const subject = encodeURIComponent(
           "MJD Chase Light Build Inquiry - 10th Gen F-150"
         );
+
         const body = encodeURIComponent(
-  `Hey MJDesigns team,\n\nI'm interested in ordering a chase light for my 10th gen F-150.\n\nSelected lens configuration: ${selectedName}\nQuoted total from configurator: $${total}\n\nTruck year/trim:\nShipping city/ZIP:\nPreferred payment method (PayPal, Venmo, etc.):\nAdditional notes:\n\nI understand that my chase light will only enter the build queue after payment is received.\n\nThanks!`
-);
+          `Hey MJDesigns,\n\n` +
+          `I'd like to start an order for a 10th gen F-150 chase light.\n\n` +
+          `Selected lens configuration: ${selectedName}\n` +
+          `Quoted total from configurator: $${total}\n\n` +
+          `Shipping city & ZIP (for shipping estimate only):\n` +
+          `Preferred payment method (Venmo or Zelle):\n` +
+          `Additional notes:\n\n` +
+          `I understand that my build will not begin until payment has been received and confirmed.\n\n` +
+          `Thanks!`
+        );
 
         window.location.href = `mailto:mjdesign.3mf@gmail.com?subject=${subject}&body=${body}`;
       });
