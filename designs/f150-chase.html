@@ -499,12 +499,28 @@
           Start Your Order
         </button>
         <p class="config-note">
-          Build-to-order: once submitted, we&rsquo;ll contact you to confirm options and lead time.
-        </p>
+  Build-to-order: once you email us, we’ll confirm your options, final total, and estimated ship date.
+  Your chase light only enters the build queue after payment is received.
+</p>
       </div>
 
     </section>
   </main>
+
+  <section class="product-disclaimer" style="
+  margin-top: 2.5rem;
+  background-color: #f5f5f5;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #333;
+  line-height: 1.5;
+  text-align: center;
+">
+  <p><strong>Disclaimer:</strong> This chase light is intended for <strong>off-road use only</strong> and is not DOT approved.</p>
+  <p>Professional installation is recommended. MJDesigns is not responsible for wiring damage, electrical issues, or improper installation.</p>
+  <p><strong>All housings are built to order.</strong> Once production begins, orders cannot be canceled or refunded.</p>
+</section>
 
   <footer>
     <p>&copy; 2025 MJDesigns. All rights reserved.</p>
@@ -599,8 +615,8 @@
           "MJD Chase Light Build Inquiry - 10th Gen F-150"
         );
         const body = encodeURIComponent(
-          `Hey Mike,\n\nI'm interested in ordering a chase light for my 10th gen F-150.\n\nSelected lens configuration: ${selectedName}\nQuoted total from configurator: $${total}\n\nTruck year/trim:\nAdditional notes:\n\nThanks!`
-        );
+  `Hey MJDesigns team,\n\nI'm interested in ordering a chase light for my 10th gen F-150.\n\nSelected lens configuration: ${selectedName}\nQuoted total from configurator: $${total}\n\nTruck year/trim:\nShipping city/ZIP:\nPreferred payment method (PayPal, Venmo, etc.):\nAdditional notes:\n\nI understand that my chase light will only enter the build queue after payment is received.\n\nThanks!`
+);
 
         window.location.href = `mailto:mjdesign.3mf@gmail.com?subject=${subject}&body=${body}`;
       });
