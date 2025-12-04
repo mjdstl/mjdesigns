@@ -48,6 +48,182 @@
     margin-bottom: 1rem;
     opacity: 0.85;
   }
+
+  /* ========== CONFIGURATOR STYLES ========== */
+  .chase-config {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+  }
+
+  .config-hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .config-preview {
+    flex: 1 1 320px;
+  }
+
+  .config-preview img {
+    width: 100%;
+    border-radius: 1rem;
+    display: block;
+    object-fit: cover;
+  }
+
+  .config-summary {
+    flex: 1 1 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .config-price-box {
+    border-radius: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid #444;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 2rem;
+    color: #f5f5f5;
+    grid-column: 1 / -1;
+  }
+
+  .config-price-box h3 {
+    margin: 0 0 0.5rem;
+    color: #f5f5f5;
+  }
+
+  .config-price-box p {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+  }
+
+  .config-total {
+    margin-top: 0.5rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+    border-top: 1px solid #333;
+    padding-top: 0.4rem;
+  }
+
+  .config-cta {
+    margin-top: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    background: #f5b400;
+    color: #000;
+  }
+
+  .config-cta:hover {
+    filter: brightness(1.05);
+  }
+
+  .config-note,
+  .config-subtext,
+  .config-options h3 {
+    color: #000;
+  }
+
+  .config-note {
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+
+  .config-options {
+    margin-top: 1.5rem;
+  }
+
+  .config-options h3 {
+    margin-bottom: 0.25rem;
+  }
+
+  .config-subtext {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-bottom: 1rem;
+  }
+
+  .config-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    align-items: stretch;
+  }
+
+  .config-card {
+    text-align: left;
+    border-radius: 0.9rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid #444;
+    background: #151515;
+    cursor: pointer;
+    transition:
+      transform 0.12s ease,
+      box-shadow 0.12s ease,
+      border-color 0.12s ease;
+    color: #f5f5f5;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .config-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: inherit;
+  }
+
+  .config-card * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .config-card h4 {
+    margin: 0 0 0.25rem;
+  }
+
+  .config-card-detail {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.9;
+  }
+
+  .config-card-tag {
+    margin: 0.3rem 0 0;
+    font-size: 0.8rem;
+    opacity: 0.75;
+  }
+
+  .config-card-upcharge {
+    margin: 0.35rem 0 0;
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+
+  .config-card.active {
+    border-color: #f5b400;
+    box-shadow: 0 0 0 1px rgba(245, 180, 0, 0.4);
+    transform: translateY(-1px);
+  }
   </style>
 </head>
 <body>
@@ -78,7 +254,7 @@
       <button class="carousel-button next">&#8594;</button>
     </div>
 
-        <!-- SHORT DESCRIPTION -->
+    <!-- SHORT DESCRIPTION -->
     <p>
       This CAD-designed chase light replaces your stock third brake light, offering chase functionality
       while maintaining an OEM-style fit. The housing is 3D printed in ASA for heat and UV resistance,
@@ -90,186 +266,192 @@
     <section class="product-specs">
       <h3>What&rsquo;s Included</h3>
       <ul>
-        <li>1x 3D-printed ASA chase light housing, in black.</li>
-        <li>2x 40&nbsp;W LED pods in the lens/beam option you select below.</li>
-        <li>2x Compact LEDs for brake lights and 1x compact LED for running lights, all mounted inside the housing.</li>
-        <li>1x Pre installed foam gasket material to seal the housing to the cab.</li>
+        <li>1× 3D-printed ASA chase light housing in black.</li>
+        <li>2× 3&quot; 40&nbsp;W LED pods in the lens/beam option you select above.</li>
+        <li>2 compact LEDs for brake lights and 1 compact LED for running lights, mounted in the housing.</li>
+        <li>Foam gasket material to seal the housing to the cab.</li>
       </ul>
 
       <h3>What You&rsquo;ll Need to Supply</h3>
       <ul>
-        <li>12V power, ground, and tap into your third-brake and running light circuits.</li>
-        <li>Switches, fuse, and relay for the chase pods (recommended on their own fused circuit).</li>
+        <li>12&nbsp;V power, ground, and tap into your third-brake and running light circuits.</li>
+        <li>Switch, fuse, and relay for the chase pods (recommended on their own fused circuit).</li>
         <li>Optional: strobe controller module if you want chase/strobe patterns on the amber pods.</li>
       </ul>
 
       <h3>Recommended Electrical Setup</h3>
       <p>
-        I recommend running the chase pods on their own dedicated 12&nbsp;V wiring harness with an in-line fuse, 
-        switch and strobe controller. On my own truck, the amber chase pods are connect to a switch panel with a built in fuse/relay 
-        and an additional strobe controller module to wirlessly enable chase patterns. The brake and running lights are connected by
-        tapping into the factory third-brake and running light circuits. More info coming soon on wiring diagrams and setup suggestions.
+        I recommend running the chase pods on their own dedicated 12&nbsp;V wiring harness with an in-line fuse,
+        switch, and strobe controller. On my own truck, the amber chase pods are connected to a switch panel
+        with a built-in fuse/relay and an additional strobe controller module to wirelessly enable chase patterns.
+        The brake and running lights are connected by tapping into the factory third-brake and running light circuits.
+        More info is coming soon on wiring diagrams and detailed setup suggestions.
       </p>
     </section>
 
     <!-- CONFIGURATOR SECTION -->
     <section class="chase-config">
-      <div class="config-hero">
-        <div class="config-summary">
-          <button class="config-cta" id="config-start-order">
-            Start Your Order
-          </button>
-          <p class="config-note">
-            Build-to-order: once submitted, I'll contact you to confirm options and lead time.
-          </p>
-        </div>
-      </div>
-
       <div class="config-options">
         <h3>Choose Your Lens Configuration</h3>
         <p class="config-subtext">
-          All options use the same 3&quot; 40&nbsp;W LED pods — you’re choosing the lens and beam pattern.
+          All options use the same 3&quot; 40&nbsp;W LED pods — you&rsquo;re choosing the lens and beam pattern.
           I currently run Yellow Amber Diffused on my own truck (shown above). Yellow Amber Combo is the default
-          desert setup if you don’t pick a specific option. Diffused honeycomb lenses are more about being seen
-          than seeing the trail — they’re designed for maximum presence, not maximum distance.
+          desert setup if you don&rsquo;t pick a specific option. Diffused honeycomb lenses are more about being seen
+          than seeing the trail — they&rsquo;re designed for maximum presence, not maximum distance.
         </p>
 
         <div class="config-grid" id="config-options-grid">
-          <!-- DEFAULT: Yellow Amber Combo -->
-          <button
-            class="config-card active"
-            data-name="Yellow Amber Combo"
-            data-upcharge="0"
-            data-image="../images/chase-yellow-combo-night.jpg"
-            style="background-image: url('../images/lens-yellow-combo.jpg');"
-          >
-            <h4>Yellow Amber Combo</h4>
-            <p class="config-card-detail">Spot/Flood Combo</p>
-            <p class="config-card-tag">default</p>
-          </button>
 
-          <!-- Yellow Amber Diffuse -->
-          <button
-            class="config-card"
-            data-name="Yellow Amber Honeycomb Diffuse"
-            data-upcharge="10"
-            data-image="../images/chase-yellow-honeycomb.jpg"
-            style="background-image: url('../images/lens-yellow-diffuse.jpg');"
-          >
-            <h4>Yellow Amber Diffused</h4>
-            <p class="config-card-detail">Honeycomb Diffuse</p>
-          </button>
+  <!-- DEFAULT: Yellow Amber Combo ($0, no price shown) -->
+  <button
+    class="config-card active"
+    data-name="Yellow Amber Combo"
+    data-upcharge="0"
+    data-image="../images/chase-yellow-combo-night.jpg"
+    style="background-image: url('../images/lens-yellow-combo.jpg');"
+  >
+    <h4>Yellow Amber Combo</h4>
+    <p class="config-card-detail">Spot/Flood Combo</p>
+  </button>
 
-          <!-- Orange Amber Flood -->
-          <button
-            class="config-card"
-            data-name="Orange Amber Flood"
-            data-upcharge="0"
-            data-image="../images/chase-orange-flood.jpg"
-            style="background-image: url('../images/lens-orange-flood.jpg');"
-          >
-            <h4>Orange Amber Flood</h4>
-            <p class="config-card-detail">Flood</p>
-          </button>
+  <!-- Yellow Amber Diffuse (+$10) -->
+  <button
+    class="config-card"
+    data-name="Yellow Amber Honeycomb Diffuse"
+    data-upcharge="10"
+    data-image="../images/chase-yellow-honeycomb.jpg"
+    style="background-image: url('../images/lens-yellow-diffuse.jpg');"
+  >
+    <h4>Yellow Amber Diffused</h4>
+    <p class="config-card-detail">Honeycomb Diffuse</p>
+    <p class="config-card-upcharge">+ $10</p>
+  </button>
 
-          <!-- Orange Amber Combo -->
-          <button
-            class="config-card"
-            data-name="Orange Amber Combo"
-            data-upcharge="10"
-            data-image="../images/chase-orange-combo.jpg"
-            style="background-image: url('../images/lens-orange-combo.jpg');"
-          >
-            <h4>Orange Amber Combo</h4>
-            <p class="config-card-detail">Spot/Flood Combo</p>
-          </button>
+  <!-- Orange Amber Flood ($0, no price shown) -->
+  <button
+    class="config-card"
+    data-name="Orange Amber Flood"
+    data-upcharge="0"
+    data-image="../images/chase-orange-flood.jpg"
+    style="background-image: url('../images/lens-orange-flood.jpg');"
+  >
+    <h4>Orange Amber Flood</h4>
+    <p class="config-card-detail">Flood</p>
+  </button>
 
-          <!-- White Combo -->
-          <button
-            class="config-card"
-            data-name="White Combo"
-            data-upcharge="0"
-            data-image="../images/chase-white-combo.jpg"
-            style="background-image: url('../images/lens-white-combo.jpg');"
-          >
-            <h4>White Combo</h4>
-            <p class="config-card-detail">Spot/Flood Combo</p>
-          </button>
+  <!-- Orange Amber Combo (+$10) -->
+  <button
+    class="config-card"
+    data-name="Orange Amber Combo"
+    data-upcharge="10"
+    data-image="../images/chase-orange-combo.jpg"
+    style="background-image: url('../images/lens-orange-combo.jpg');"
+  >
+    <h4>Orange Amber Combo</h4>
+    <p class="config-card-detail">Spot/Flood Combo</p>
+    <p class="config-card-upcharge">+ $10</p>
+  </button>
 
-          <!-- White Spot -->
-          <button
-            class="config-card"
-            data-name="White Spot"
-            data-upcharge="0"
-            data-image="../images/chase-white-spot.jpg"
-            style="background-image: url('../images/lens-white-spot.jpg');"
-          >
-            <h4>White Spot</h4>
-            <p class="config-card-detail">Spot Beam</p>
-          </button>
+  <!-- White Combo ($0) -->
+  <button
+    class="config-card"
+    data-name="White Combo"
+    data-upcharge="0"
+    data-image="../images/chase-white-combo.jpg"
+    style="background-image: url('../images/lens-white-combo.jpg');"
+  >
+    <h4>White Combo</h4>
+    <p class="config-card-detail">Spot/Flood Combo</p>
+  </button>
 
-          <!-- White Diffuse -->
-          <button
-            class="config-card"
-            data-name="White Honeycomb Diffuse"
-            data-upcharge="0"
-            data-image="../images/chase-white-diffuse.jpg"
-            style="background-image: url('../images/lens-white-diffuse.jpg');"
-          >
-            <h4>White Diffused</h4>
-            <p class="config-card-detail">Honeycomb Diffuse</p>
-          </button>
+  <!-- White Spot ($0) -->
+  <button
+    class="config-card"
+    data-name="White Spot"
+    data-upcharge="0"
+    data-image="../images/chase-white-spot.jpg"
+    style="background-image: url('../images/lens-white-spot.jpg');"
+  >
+    <h4>White Spot</h4>
+    <p class="config-card-detail">Spot Beam</p>
+  </button>
 
-          <!-- White Diffuse Combo -->
-          <button
-            class="config-card"
-            data-name="White Honeycomb Diffuse Combo"
-            data-upcharge="0"
-            data-image="../images/chase-white-diffuse-combo.jpg"
-            style="background-image: url('../images/lens-white-diffuse-combo.jpg');"
-          >
-            <h4>White Diffuse Combo</h4>
-            <p class="config-card-detail">Honeycomb Diffuse + Flood</p>
-          </button>
+  <!-- White Diffused ($0) -->
+  <button
+    class="config-card"
+    data-name="White Honeycomb Diffuse"
+    data-upcharge="0"
+    data-image="../images/chase-white-diffuse.jpg"
+    style="background-image: url('../images/lens-white-diffuse.jpg');"
+  >
+    <h4>White Diffused</h4>
+    <p class="config-card-detail">Honeycomb Diffuse</p>
+  </button>
 
-          <!-- Red Diffuse -->
-          <button
-            class="config-card"
-            data-name="Red Honeycomb Diffuse"
-            data-upcharge="15"
-            data-image="../images/chase-red-diffuse.jpg"
-            style="background-image: url('../images/lens-red-diffuse.jpg');"
-          >
-            <h4>Red Honeycomb Diffused</h4>
-            <p class="config-card-detail">Honeycomb Diffuse</p>
-          </button>
+  <!-- White Diffuse Combo ($0) -->
+  <button
+    class="config-card"
+    data-name="White Honeycomb Diffuse Combo"
+    data-upcharge="0"
+    data-image="../images/chase-white-diffuse-combo.jpg"
+    style="background-image: url('../images/lens-white-diffuse-combo.jpg');"
+  >
+    <h4>White Diffuse Combo</h4>
+    <p class="config-card-detail">Honeycomb Diffuse + Flood</p>
+  </button>
 
-          <!-- Green Diffuse -->
-          <button
-            class="config-card"
-            data-name="Green Honeycomb Diffuse"
-            data-upcharge="15"
-            data-image="../images/chase-green-diffuse.jpg"
-            style="background-image: url('../images/lens-green-diffuse.jpg');"
-          >
-            <h4>Green Honeycomb Diffused</h4>
-            <p class="config-card-detail">Honeycomb Diffuse</p>
-          </button>
+  <!-- Red Diffuse (+$15) -->
+  <button
+    class="config-card"
+    data-name="Red Honeycomb Diffuse"
+    data-upcharge="15"
+    data-image="../images/chase-red-diffuse.jpg"
+    style="background-image: url('../images/lens-red-diffuse.jpg');"
+  >
+    <h4>Red Honeycomb Diffused</h4>
+    <p class="config-card-detail">Honeycomb Diffuse</p>
+    <p class="config-card-upcharge">+ $15</p>
+  </button>
 
-          <!-- ORDER SUMMARY AT THE BOTTOM -->
-          <div class="config-price-box">
-            <h3>Order Summary</h3>
-            <p><span>Base housing:</span> <span>$170</span></p>
-            <p>
-              <span>Lens option:</span>
-              <span id="config-pod-upcharge">$0</span>
-            </p>
-            <p class="config-total">
-              <span>Total:</span>
-              <span id="config-total-price">$170</span>
-            </p>
-          </div>
-        </div>
+  <!-- Green Diffuse (+$15) -->
+  <button
+    class="config-card"
+    data-name="Green Honeycomb Diffuse"
+    data-upcharge="15"
+    data-image="../images/chase-green-diffuse.jpg"
+    style="background-image: url('../images/lens-green-diffuse.jpg');"
+  >
+    <h4>Green Honeycomb Diffused</h4>
+    <p class="config-card-detail">Honeycomb Diffuse</p>
+    <p class="config-card-upcharge">+ $15</p>
+  </button>
+
+</div>
+
+      </div>
+
+      <!-- ORDER SUMMARY UNDER LENS OPTIONS -->
+      <div class="config-price-box">
+        <h3>Order Summary</h3>
+        <p><span>Base housing:</span> <span>$170</span></p>
+        <p>
+          <span>Lens selection:</span>
+          <span id="config-pod-line">Yellow Amber Combo $0</span>
+        </p>
+        <p class="config-total">
+          <span>Total:</span>
+          <span id="config-total-price">$170</span>
+        </p>
+      </div>
+
+      <!-- START ORDER BUTTON LAST -->
+      <div class="config-summary">
+        <button class="config-cta" id="config-start-order">
+          Start Your Order
+        </button>
+        <p class="config-note">
+          Build-to-order: once submitted, we'll contact you to confirm options and lead time.
+        </p>
       </div>
     </section>
   </main>
@@ -305,7 +487,7 @@
     (function () {
       const BASE_PRICE = 170;
       const optionCards = document.querySelectorAll(".config-card");
-      const podUpchargeEl = document.getElementById("config-pod-upcharge");
+      const podLineEl = document.getElementById("config-pod-line");
       const totalPriceEl = document.getElementById("config-total-price");
       const previewImageEl = document.getElementById("config-preview-image");
       const startOrderBtn = document.getElementById("config-start-order");
@@ -314,12 +496,17 @@
         optionCards.forEach((c) => c.classList.remove("active"));
         card.classList.add("active");
 
+        const name = card.dataset.name || "";
         const upcharge = Number(card.dataset.upcharge || 0);
         const imgPath = card.dataset.image;
 
-        podUpchargeEl.textContent = upcharge === 0 ? "$0" : `+$${upcharge}`;
+        // Update lens line: "Green Honeycomb Diffused $15"
+        podLineEl.textContent = `${name} ${upcharge === 0 ? "$0" : "$" + upcharge}`;
+
+        // Update total price
         totalPriceEl.textContent = `$${BASE_PRICE + upcharge}`;
 
+        // If you ever add a separate preview image, this will still work
         if (imgPath && previewImageEl) previewImageEl.src = imgPath;
       }
 
@@ -339,11 +526,17 @@
           "MJD Chase Light Build Inquiry - 10th Gen F-150"
         );
         const body = encodeURIComponent(
-          `Hey Mike,\n\nI'm interested in ordering a chase light for my 10th gen F-150.\n\nSelected lens configuration: ${selectedName}\nQuoted total from configurator: $${total}\n\nTruck year/trim:\nAdditional notes:\n\nThanks!`
+          `Hey Mike,\n\nI'm interested in ordering a chase light for my 10th gen F-150.\n\nSelected pod configuration: ${selectedName}\nQuoted total from configurator: $${total}\n\nTruck year/trim:\nAdditional notes:\n\nThanks!`
         );
 
         window.location.href = `mailto:mjdesign.3mf@gmail.com?subject=${subject}&body=${body}`;
       });
+
+      // Set initial summary line to match default card
+      const defaultCard = document.querySelector(".config-card.active");
+      if (defaultCard) {
+        updateSelection(defaultCard);
+      }
     })();
   </script>
 
