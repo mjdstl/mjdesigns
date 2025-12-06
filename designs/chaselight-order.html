@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Submit Chase Light Order | MJDesigns</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f9f9f9;
+      padding: 2rem;
+    }
+
+    .order-form {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-form h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .order-form label {
+      display: block;
+      margin: 1rem 0 0.3rem;
+      font-weight: bold;
+    }
+
+    .order-form input,
+    .order-form select,
+    .order-form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .readonly-field {
+      background-color: #eee;
+      border: none;
+      padding: 0.7rem;
+      font-size: 1rem;
+      width: 100%;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .order-form button {
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      width: 100%;
+      background-color: #222;
+      color: white;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .order-form button:hover {
+      background-color: #444;
+    }
+
+    .small-note {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <form class="order-form" action="https://usebasin.com/f/783b90725eab" method="POST">
+    <h2>Submit Your Order</h2>
+
+    <label>Lens Configuration:</label>
+    <input type="text" id="lensInput" name="lensConfiguration" class="readonly-field" readonly />
+
+    <label>Total Price (Excludes Shipping):</label>
+    <input type="text" id="priceInput" name="quotedPrice" class="readonly-field" readonly />
+
+    <label for="fullName">Full Name:</label>
+    <input type="text" id="fullName" name="fullName" required />
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="shipping">Shipping Address:</label>
+    <textarea id="shipping" name="shippingAddress" rows="3" required></textarea>
+
+    <label for="payment">Preferred Payment Method:</label>
+    <select id="payment" name="paymentMethod" required>
+      <option value="">Select one</option>
+      <option value="Zelle">Zelle</option>
+      <option value="Venmo">Venmo</option>
+      <option value="PayPal">PayPal</option>
+    </select>
+
+    <label for="notes">Optional Notes:</label>
+    <textarea id="notes" name="optionalNotes" rows="3" placeholder="Include anything we should know (e.g., special requests may add production time)"></textarea>
+
+    <div id="qrContainer" style="display: none; text-align: center; margin-top: 1.5rem;">
+  <p id="qrLabel" style="font-weight: bold; margin-bottom: 0.5rem;"></p>
+  <img id="qrImage" src="" alt="Payment QR Code" style="max-width: 250px; width: 100%; height: auto;" />
+</div>
+
+    <button type="submit">Submit Order</button>
+
+    <p class="small-note">
+      After submission, we’ll email you to confirm payment and begin your order.
+    </p>
+  </form>
+
+  <script>
+  // Autofill from URL parameters
+  const params = new URLSearchParams(window.location.search);
+  const lens = params.get("lens") || "Not provided";
+  const quote = params.get("quote") || "Not provided";
+  document.getElementById("lensInput").value = lens;
+  document.getElementById("priceInput").value = `$${quote.replace(/^\$/, "")}`;
+
+  // QR Code logic
+  const paymentSelect = document.getElementById("payment");
+  const qrContainer = document.getElementById("qrContainer");
+  const qrImage = document.getElementById("qrImage");
+  const qrLabel = document.getElementById("qrLabel");
+
+  paymentSelect.addEventListener("change", () => {
+    const method = paymentSelect.value;
+
+    if (method === "Venmo") {
+      qrImage.src = "../images/venmo-qr.png";
+      qrLabel.textContent = "Scan to pay MJD Designs via Venmo";
+      qrContainer.style.display = "block";
+    } else if (method === "Zelle") {
+      qrImage.src = "../images/zelle-qr.png";
+      qrLabel.textContent = "Scan to pay MJD Designs via Zelle";
+      qrContainer.style.display = "block";
+    } else {
+      qrContainer.style.display = "none";
+      qrImage.src = "";
+    }
+  });
+</script>
+
+</body>
+</html>
