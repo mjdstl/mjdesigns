@@ -73,6 +73,16 @@
       font-size: 0.9rem;
       color: #555;
     }
+
+    .info-note {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #333;
+      background-color: #f1f1f1;
+      padding: 0.75rem;
+      border-left: 4px solid #999;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
@@ -106,49 +116,25 @@
     <label for="notes">Optional Notes:</label>
     <textarea id="notes" name="optionalNotes" rows="3" placeholder="Include anything we should know (e.g., special requests may add production time)"></textarea>
 
-    <div id="qrContainer" style="display: none; text-align: center; margin-top: 1.5rem;">
-  <p id="qrLabel" style="font-weight: bold; margin-bottom: 0.5rem;"></p>
-  <img id="qrImage" src="" alt="Payment QR Code" style="max-width: 250px; width: 100%; height: auto;" />
-</div>
+    <div class="info-note">
+      This form lets us collect your order request and shipping details. After submitting, we’ll review your info and email you a final quote that includes shipping, along with simple instructions to pay using your preferred method.
+    </div>
 
     <button type="submit">Submit Order</button>
 
     <p class="small-note">
-      After submission, we’ll email you to confirm payment and begin your order.
+      Once payment is received, we’ll start production and notify you with tracking details when your order ships.
     </p>
   </form>
 
   <script>
-  // Autofill from URL parameters
-  const params = new URLSearchParams(window.location.search);
-  const lens = params.get("lens") || "Not provided";
-  const quote = params.get("quote") || "Not provided";
-  document.getElementById("lensInput").value = lens;
-  document.getElementById("priceInput").value = `$${quote.replace(/^\$/, "")}`;
-
-  // QR Code logic
-  const paymentSelect = document.getElementById("payment");
-  const qrContainer = document.getElementById("qrContainer");
-  const qrImage = document.getElementById("qrImage");
-  const qrLabel = document.getElementById("qrLabel");
-
-  paymentSelect.addEventListener("change", () => {
-    const method = paymentSelect.value;
-
-    if (method === "Venmo") {
-      qrImage.src = "../images/venmo-qr.png";
-      qrLabel.textContent = "Scan to pay MJD Designs via Venmo";
-      qrContainer.style.display = "block";
-    } else if (method === "Zelle") {
-      qrImage.src = "../images/zelle-qr.png";
-      qrLabel.textContent = "Scan to pay MJD Designs via Zelle";
-      qrContainer.style.display = "block";
-    } else {
-      qrContainer.style.display = "none";
-      qrImage.src = "";
-    }
-  });
-</script>
+    // Autofill from URL parameters
+    const params = new URLSearchParams(window.location.search);
+    const lens = params.get("lens") || "Not provided";
+    const quote = params.get("quote") || "Not provided";
+    document.getElementById("lensInput").value = lens;
+    document.getElementById("priceInput").value = `$${quote.replace(/^\$/, "")}`;
+  </script>
 
 </body>
 </html>
